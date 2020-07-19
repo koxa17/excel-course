@@ -1,7 +1,7 @@
 const path = require('path');
 // подключаем установленые плагины
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -51,19 +51,13 @@ module.exports = {
     },
     devtool: isDev ? 'source-map' : false,
     devServer: {
-        port: 3000,
+        port: 8080,
         hot: isDev,
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new HTMLWebpackPlugin({
-            // откуда будем брать шаблон html - что бы плагин его не генерировал
-            template: "index.html",
-            minify: {
-                // удалять только в режиме продакшн
-                removeComments: isProd,
-                collapseWhitespace: isProd
-            }
+        new HtmlWebpackPlugin({
+            template: 'index.html'
         }),
         new CopyPlugin({
             patterns: [
@@ -82,7 +76,7 @@ module.exports = {
                 use: [{
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            hot: isDev,
+                            hmr: isDev,
                             reloadAll: true
                         }
                     },
