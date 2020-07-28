@@ -1,16 +1,23 @@
 {
-    "parser": "babel-eslint",
-    "env": {
-        "es6": true,
-        "browser": true,
-        "node":true
-    },
-    "rules": {
-        "semi" : "off" ,
-        "linebreak-style": "off",
-        "require-jsdoc": "off",
-        "indent": "off",
-        "eol-last":"off"
-    },
-    "extends": ["eslint:recommended", "google"]
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "semi": "off",
+    "linebreak-style": "off",
+    "require-jsdoc": "off",
+    "indent": "off",
+    "eol-last": "off",
+    "object-curly-spacing": "off",
+    "comma-dangle": "off",
+    "arrow-parens": "off",
+    "operator-linebreak": "off",
+    "max-len": ["error", {"code": 90}],
+    "space-before-function-paren": "off"
+  },
+
+  "extends": ["eslint:recommended", "google"]
 }
